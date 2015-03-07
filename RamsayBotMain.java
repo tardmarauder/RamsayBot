@@ -12,7 +12,7 @@ public class RamsayBotMain {
 		bot.connect("c.ustream.tv");
 		
 		// join a channel
-		bot.joinChannel("#extralives-marathons");
+		bot.joinChannel("#channel");
 	}
 
 }
