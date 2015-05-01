@@ -125,13 +125,14 @@ public class RamsayBot extends PircBot {
 		try {
 		// get weather for city
 		CurrentWeather cwd = owm.currentWeatherByCityName(city);
+		// check if the city is valid
 		if(cwd.isValid()) {
 			cwd = owm.currentWeatherByCityName(city);
 			if(cwd.getMainInstance().hasTemperature()){
 		// calculate celcius 
 			float celciusTemp = (cwd.getMainInstance().getTemperature() - 32) * 5 / 9;
 			
-			sendMessage(channel, cwd.getCityName() + " Temperature " + cwd.getMainInstance().getTemperature() + "F" + " / " + String.format("%2.1f", celciusTemp) + "C");
+			sendMessage(channel, cwd.getCityName() + " Temperature " + cwd.getMainInstance().getTemperature() + "F" + " / " + String.format("%2.1f", celciusTemp) + "C" + " / " + "% " + cwd.getMainInstance().getHumidity() + " humidity");
 			}
 		}
 			
