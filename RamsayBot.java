@@ -97,7 +97,7 @@ public class RamsayBot extends PircBot {
 		}
 		// command to kill ramsay
 		else if(message.equalsIgnoreCase("Dinner service is over")){
-			disconnect();
+			sendMessage(channel,"No, it's not.");
 		}
 		// Doesn't kill Jaden anymore but I'm keeping it anyways
 		else if(message.equalsIgnoreCase("!killjaden")){
@@ -122,10 +122,10 @@ public class RamsayBot extends PircBot {
 			// store user input in a String variable
 			String city = message.replace("!weather","");
 			
-
 		try {
 		// get weather for city
 		CurrentWeather cwd = owm.currentWeatherByCityName(city);
+		if(cwd.isValid()) {
 			cwd = owm.currentWeatherByCityName(city);
 			if(cwd.getMainInstance().hasTemperature()){
 		// calculate celcius 
@@ -133,6 +133,7 @@ public class RamsayBot extends PircBot {
 			
 			sendMessage(channel, cwd.getCityName() + " Temperature " + cwd.getMainInstance().getTemperature() + "F" + " / " + String.format("%2.1f", celciusTemp) + "C");
 			}
+		}
 			
 		} catch (IOException | JSONException e) {
 			// TODO Auto-generated catch block
