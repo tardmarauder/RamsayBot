@@ -132,7 +132,7 @@ public class RamsayBot extends PircBot {
 		// calculate celcius 
 			float celciusTemp = (cwd.getMainInstance().getTemperature() - 32) * 5 / 9;
 			
-			sendMessage(channel, cwd.getCityName() + " Temperature " + cwd.getMainInstance().getTemperature() + "F" + " / " + String.format("%2.1f", celciusTemp) + "C" + " / " + cwd.getMainInstance().getHumidity() + "% humidity");
+			sendMessage(channel, cwd.getCityName() + " Temperature " + cwd.getMainInstance().getTemperature() + "F" + " / " + String.format("%2.1f", celciusTemp) + "C" + " / " + cwd.getMainInstance().getHumidity() + " " + "%" + "humidity");
 			}
 		}
 			
